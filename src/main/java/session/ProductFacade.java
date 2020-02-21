@@ -19,6 +19,7 @@ public class ProductFacade extends AbstractFacade<Product> {
     @PersistenceContext(unitName = "AffableBean")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }

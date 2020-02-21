@@ -40,26 +40,33 @@ import javax.persistence.TemporalType;
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
+
     @Basic(optional = false)
     @Column(name = "price")
     private BigDecimal price;
+
     @Column(name = "description")
     private String description;
+
     @Basic(optional = false)
     @Column(name = "last_update")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastUpdate;
+
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Category category;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Collection<OrderedProduct> orderedProductCollection;
 

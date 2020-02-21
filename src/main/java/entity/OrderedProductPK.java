@@ -19,6 +19,7 @@ public class OrderedProductPK implements Serializable {
     @Basic(optional = false)
     @Column(name = "customer_order_id")
     private int customerOrderId;
+
     @Basic(optional = false)
     @Column(name = "product_id")
     private int productId;

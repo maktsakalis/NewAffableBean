@@ -36,29 +36,37 @@ import javax.persistence.Table;
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
+
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
+
     @Basic(optional = false)
     @Column(name = "phone")
     private String phone;
+
     @Basic(optional = false)
     @Column(name = "address")
     private String address;
+
     @Basic(optional = false)
     @Column(name = "city_region")
     private String cityRegion;
+
     @Basic(optional = false)
     @Column(name = "cc_number")
     private String ccNumber;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Collection<CustomerOrder> customerOrderCollection;
 

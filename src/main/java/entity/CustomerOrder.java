@@ -44,18 +44,23 @@ public class CustomerOrder implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+
     @Basic(optional = false)
     @Column(name = "amount")
     private BigDecimal amount;
+
     @Basic(optional = false)
     @Column(name = "date_created")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
+
     @Basic(optional = false)
     @Column(name = "confirmation_number")
     private int confirmationNumber;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
     private Collection<OrderedProduct> orderedProductCollection;
+
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Customer customer;

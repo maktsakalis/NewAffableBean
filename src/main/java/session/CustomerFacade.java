@@ -19,6 +19,7 @@ public class CustomerFacade extends AbstractFacade<Customer> {
     @PersistenceContext(unitName = "AffableBean")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }
