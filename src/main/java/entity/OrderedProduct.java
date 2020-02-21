@@ -1,8 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
  */
-
 package entity;
 
 import java.io.Serializable;
@@ -28,6 +27,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "OrderedProduct.findByProductId", query = "SELECT o FROM OrderedProduct o WHERE o.orderedProductPK.productId = :productId"),
     @NamedQuery(name = "OrderedProduct.findByQuantity", query = "SELECT o FROM OrderedProduct o WHERE o.quantity = :quantity")})
 public class OrderedProduct implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected OrderedProductPK orderedProductPK;

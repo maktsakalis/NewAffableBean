@@ -1,8 +1,7 @@
 /*
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
-*/
-
+ */
 package entity;
 
 import java.io.Serializable;
@@ -31,6 +30,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id"),
     @NamedQuery(name = "Category.findByName", query = "SELECT c FROM Category c WHERE c.name = :name")})
 public class Category implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,52 +40,52 @@ public class Category implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.EAGER)
     private Collection<Product> productCollection;
-    
+
     public Category() {
     }
-    
+
     public Category(Short id) {
         this.id = id;
     }
-    
+
     public Category(Short id, String name) {
         this.id = id;
         this.name = name;
     }
-    
+
     public Short getId() {
         return id;
     }
-    
+
     public void setId(Short id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public Collection<Product> getProductCollection() {
         return productCollection;
     }
-    
+
     public void setProductCollection(Collection<Product> productCollection) {
         this.productCollection = productCollection;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -98,10 +98,10 @@ public class Category implements Serializable {
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
         return "entity.Category[id=" + id + "]";
     }
-    
+
 }

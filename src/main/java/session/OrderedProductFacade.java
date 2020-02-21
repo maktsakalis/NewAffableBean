@@ -1,8 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
  */
-
 package session;
 
 import entity.OrderedProduct;
@@ -16,6 +15,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class OrderedProductFacade extends AbstractFacade<OrderedProduct> {
+
     @PersistenceContext(unitName = "AffableBean")
     private EntityManager em;
 

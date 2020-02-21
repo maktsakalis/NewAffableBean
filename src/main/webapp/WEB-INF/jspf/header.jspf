@@ -30,31 +30,31 @@
                         [ language toggle ]
                     </div>
 
-                <%-- checkout widget --%>
+                    <%-- checkout widget --%>
                     <div class="headerWidget">
 
-                       <%-- tests for the following:
-                            * if cart exists and is not empty
-                            * if the servlet path does not contain '/checkout'
-                            * if the requested view is not checkout
-                            * if the servlet path does not contain '/cart'
-                            * if the requested view is not cart
+                        <%-- tests for the following:
+                             * if cart exists and is not empty
+                             * if the servlet path does not contain '/checkout'
+                             * if the requested view is not checkout
+                             * if the servlet path does not contain '/cart'
+                             * if the requested view is not cart
 
-                            <c:if test="${!empty sessionScope.cart}">
-                                CART EXISTS AND IS NOT NULL
-                            </c:if>
-                                <BR>
-                            <c:if test="${sessionScope.cart.numberOfItems != 0}">
-                                NUMBER OF ITEMS IN CART IS NOT 0
-                            </c:if>
-                                <BR>
-                            <c:if test="${fn:contains(pageContext.request.servletPath,'/checkout')}">
-                                SERVLET PATH CONTAINS '/checkout'
-                            </c:if>
-                                <BR>
-                            <c:if test="${requestScope['javax.servlet.forward.servlet_path'] ne '/checkout'}">
-                                REQUEST IS NOT CHECKOUT
-                            </c:if> --%>
+                             <c:if test="${!empty sessionScope.cart}">
+                                 CART EXISTS AND IS NOT NULL
+                             </c:if>
+                                 <BR>
+                             <c:if test="${sessionScope.cart.numberOfItems != 0}">
+                                 NUMBER OF ITEMS IN CART IS NOT 0
+                             </c:if>
+                                 <BR>
+                             <c:if test="${fn:contains(pageContext.request.servletPath,'/checkout')}">
+                                 SERVLET PATH CONTAINS '/checkout'
+                             </c:if>
+                                 <BR>
+                             <c:if test="${requestScope['javax.servlet.forward.servlet_path'] ne '/checkout'}">
+                                 REQUEST IS NOT CHECKOUT
+                             </c:if> --%>
 
                         <c:if test="${!empty cart && cart.numberOfItems != 0 &&
 
@@ -64,50 +64,50 @@
                                       !fn:contains(pageContext.request.servletPath,'/cart') &&
                                       requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
 
-                      <a href="checkout" class="bubble">
-                        proceed to checkout &#x279f;
-                      </a>
-                    </c:if>
+                              <a href="checkout" class="bubble">
+                                  proceed to checkout &#x279f;
+                              </a>
+                        </c:if>
                     </div>
 
-                <%-- shopping cart widget --%>
-                  <div class="headerWidget" id="viewCart">
+                    <%-- shopping cart widget --%>
+                    <div class="headerWidget" id="viewCart">
 
-                    <img src="img/cart.gif" alt="shopping cart icon" id="cart">
+                        <img src="img/cart.gif" alt="shopping cart icon" id="cart">
 
-                  <%-- If 'numberOfItems' property doesn't exist, or if number of items
-                       in cart is 0, output '0', otherwise output 'numberOfItems' --%>
-                    <span class="horizontalMargin">
-                      <c:choose>
-                        <c:when test="${cart.numberOfItems == null}">
-                          0
-                        </c:when>
-                        <c:otherwise>
-                          ${cart.numberOfItems}
-                        </c:otherwise>
-                      </c:choose>
+                        <%-- If 'numberOfItems' property doesn't exist, or if number of items
+                             in cart is 0, output '0', otherwise output 'numberOfItems' --%>
+                        <span class="horizontalMargin">
+                            <c:choose>
+                                <c:when test="${cart.numberOfItems == null}">
+                                    0
+                                </c:when>
+                                <c:otherwise>
+                                    ${cart.numberOfItems}
+                                </c:otherwise>
+                            </c:choose>
 
-                  <%-- Handle singular/plural forms of 'item' --%>
-                      <c:choose>
-                        <c:when test="${cart.numberOfItems == 1}">
-                          item
-                        </c:when>
-                        <c:otherwise>
-                          items
-                        </c:otherwise>
-                      </c:choose>
-                    </span>
+                            <%-- Handle singular/plural forms of 'item' --%>
+                            <c:choose>
+                                <c:when test="${cart.numberOfItems == 1}">
+                                    item
+                                </c:when>
+                                <c:otherwise>
+                                    items
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
 
-                    <c:if test="${!empty cart && cart.numberOfItems != 0 &&
+                        <c:if test="${!empty cart && cart.numberOfItems != 0 &&
 
-                                  !fn:contains(pageContext.request.servletPath,'/cart') &&
-                                  requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
+                                      !fn:contains(pageContext.request.servletPath,'/cart') &&
+                                      requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
 
-                      <a href="viewCart" class="bubble">
-                          view cart
-                      </a>
-                    </c:if>
-                </div>
+                              <a href="viewCart" class="bubble">
+                                  view cart
+                              </a>
+                        </c:if>
+                    </div>
                 </div>
 
                 <a href="index.jsp">

@@ -1,8 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
  */
-
 package cart;
 
 import entity.Product;
@@ -30,7 +29,8 @@ public class ShoppingCart {
      * already exists in shopping cart list, the quantity of that item is
      * incremented.
      *
-     * @param product the <code>Product</code> that defines the type of shopping cart item
+     * @param product the <code>Product</code> that defines the type of shopping
+     * cart item
      * @see ShoppingCartItem
      */
     public synchronized void addItem(Product product) {
@@ -54,12 +54,14 @@ public class ShoppingCart {
 
     /**
      * Updates the <code>ShoppingCartItem</code> of the specified
-     * <code>product</code> to the specified quantity. If '<code>0</code>'
-     * is the given quantity, the <code>ShoppingCartItem</code> is removed
-     * from the <code>ShoppingCart</code>'s <code>items</code> list.
+     * <code>product</code> to the specified quantity. If '<code>0</code>' is
+     * the given quantity, the <code>ShoppingCartItem</code> is removed from the
+     * <code>ShoppingCart</code>'s <code>items</code> list.
      *
-     * @param product the <code>Product</code> that defines the type of shopping cart item
-     * @param quantity the number which the <code>ShoppingCartItem</code> is updated to
+     * @param product the <code>Product</code> that defines the type of shopping
+     * cart item
+     * @param quantity the number which the <code>ShoppingCartItem</code> is
+     * updated to
      * @see ShoppingCartItem
      */
     public synchronized void update(Product product, String quantity) {
@@ -127,7 +129,8 @@ public class ShoppingCart {
 
     /**
      * Returns the sum of the product price multiplied by the quantity for all
-     * items in shopping cart list. This is the total cost excluding the surcharge.
+     * items in shopping cart list. This is the total cost excluding the
+     * surcharge.
      *
      * @return the cost of all items times their quantities
      * @see ShoppingCartItem
@@ -147,8 +150,8 @@ public class ShoppingCart {
 
     /**
      * Calculates the total cost of the order. This method adds the subtotal to
-     * the designated surcharge and sets the <code>total</code> instance variable
-     * with the result.
+     * the designated surcharge and sets the <code>total</code> instance
+     * variable with the result.
      *
      * @param surcharge the designated surcharge for all orders
      * @see ShoppingCartItem

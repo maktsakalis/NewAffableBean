@@ -1,8 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
  */
-
 package entity;
 
 import java.io.Serializable;
@@ -16,6 +15,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class OrderedProductPK implements Serializable {
+
     @Basic(optional = false)
     @Column(name = "customer_order_id")
     private int customerOrderId;

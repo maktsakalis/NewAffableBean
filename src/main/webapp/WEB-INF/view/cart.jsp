@@ -49,56 +49,56 @@
 
     <c:if test="${!empty cart && cart.numberOfItems != 0}">
 
-      <h4 id="subtotal">subtotal: &euro; ${cart.subtotal}</h4>
+        <h4 id="subtotal">subtotal: &euro; ${cart.subtotal}</h4>
 
-      <table id="cartTable">
+        <table id="cartTable">
 
-        <tr class="header">
-            <th>product</th>
-            <th>name</th>
-            <th>price</th>
-            <th>quantity</th>
-        </tr>
+            <tr class="header">
+                <th>product</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantity</th>
+            </tr>
 
-        <c:forEach var="cartItem" items="${cart.items}" varStatus="iter">
+            <c:forEach var="cartItem" items="${cart.items}" varStatus="iter">
 
-          <c:set var="product" value="${cartItem.product}"/>
+                <c:set var="product" value="${cartItem.product}"/>
 
-          <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
-            <td>
-              <img src="${initParam.productImagePath}${product.name}.png"
-                   alt="${product.name}">
-            </td>
+                <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
+                    <td>
+                        <img src="${initParam.productImagePath}${product.name}.png"
+                             alt="${product.name}">
+                    </td>
 
-            <td>${product.name}</td>
+                    <td>${product.name}</td>
 
-            <td>
-                &euro; ${cartItem.total}
-                <br>
-                <span class="smallText">( &euro; ${product.price} / unit )</span>
-            </td>
+                    <td>
+                        &euro; ${cartItem.total}
+                        <br>
+                        <span class="smallText">( &euro; ${product.price} / unit )</span>
+                    </td>
 
-            <td>
-                <form action="updateCart" method="post">
-                    <input type="hidden"
-                           name="productId"
-                           value="${product.id}">
-                    <input type="text"
-                           maxlength="2"
-                           size="2"
-                           value="${cartItem.quantity}"
-                           name="quantity"
-                           style="margin:5px">
-                    <input type="submit"
-                           name="submit"
-                           value="update">
-                </form>
-            </td>
-          </tr>
+                    <td>
+                        <form action="updateCart" method="post">
+                            <input type="hidden"
+                                   name="productId"
+                                   value="${product.id}">
+                            <input type="text"
+                                   maxlength="2"
+                                   size="2"
+                                   value="${cartItem.quantity}"
+                                   name="quantity"
+                                   style="margin:5px">
+                            <input type="submit"
+                                   name="submit"
+                                   value="update">
+                        </form>
+                    </td>
+                </tr>
 
-        </c:forEach>
+            </c:forEach>
 
-      </table>
+        </table>
 
     </c:if>
 </div>
