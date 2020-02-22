@@ -68,7 +68,7 @@ public class Customer implements Serializable {
     private String ccNumber;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Collection<CustomerOrder> customerOrderCollection;
+    private Collection<CustomerOrder> customerOrders;
 
     public Customer() {
     }
@@ -143,12 +143,12 @@ public class Customer implements Serializable {
         this.ccNumber = ccNumber;
     }
 
-    public Collection<CustomerOrder> getCustomerOrderCollection() {
-        return customerOrderCollection;
+    public Collection<CustomerOrder> getCustomerOrders() {
+        return customerOrders;
     }
 
-    public void setCustomerOrderCollection(Collection<CustomerOrder> customerOrderCollection) {
-        this.customerOrderCollection = customerOrderCollection;
+    public void setCustomerOrders(Collection<CustomerOrder> customerOrders) {
+        this.customerOrders = customerOrders;
     }
 
     @Override

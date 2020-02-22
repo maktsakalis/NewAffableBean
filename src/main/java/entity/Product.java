@@ -68,7 +68,7 @@ public class Product implements Serializable {
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private Collection<OrderedProduct> orderedProductCollection;
+    private Collection<OrderedProduct> orderedProducts;
 
     public Product() {
     }
@@ -132,12 +132,12 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public Collection<OrderedProduct> getOrderedProductCollection() {
-        return orderedProductCollection;
+    public Collection<OrderedProduct> getOrderedProducts() {
+        return orderedProducts;
     }
 
-    public void setOrderedProductCollection(Collection<OrderedProduct> orderedProductCollection) {
-        this.orderedProductCollection = orderedProductCollection;
+    public void setOrderedProducts(Collection<OrderedProduct> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
     @Override
