@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Feb 27, 2020, 6:15:10 PM
+    Author     : makis
+*/
+
+#loginLogo {
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#loginLogoText {
+    float: left;
+    margin: 70px 0 0 70px;
+    /* font styles apply to text within img alt attribute */
+    font-family: 'American Typewriter', Courier, monospace;
+    font-size: 50px;
+    color: #333;
+}
+
+#fieldsetcss{
+    border: 2px solid black;
+    color: #000;
+    background-color: aliceblue;
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 124px;
+
+}
+
+#legendcss{
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
