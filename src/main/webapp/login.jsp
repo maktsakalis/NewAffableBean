@@ -9,18 +9,18 @@
     <form action="" method="post">
         <fieldset id="fieldsetcss">
             <legend id="legendcss"> Please sign in</legend>
-            <div class="form-inline">
+            <div>
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                <input type="text" name="username" placeholder="Enter Username">
             </div>
             <br>
-            <div class="form-inline">
+            <div>
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                <input type="password" name="password" placeholder="Enter Password">
             </div>
             <br>
-            <button type="submit" name="action" value="signin" class="btn">Sign in</button>
-            <button type="reset" class="btn">Cancel</button>
+            <button type="submit" name="action" value="signin">Sign in</button>
+            <button type="reset">Cancel</button>
         </fieldset>
     </form>
 </div>
