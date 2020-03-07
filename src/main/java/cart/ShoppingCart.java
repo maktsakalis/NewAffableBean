@@ -18,7 +18,7 @@ public class ShoppingCart {
     double total;
 
     public ShoppingCart() {
-        items = new ArrayList<ShoppingCartItem>();
+        items = new ArrayList<>();
         numberOfItems = 0;
         total = 0;
     }
@@ -39,8 +39,7 @@ public class ShoppingCart {
 
         for (ShoppingCartItem scItem : items) {
 
-            if (scItem.getProduct().getId() == product.getId()) {
-
+            if (Objects.equals(scItem.getProduct().getId(), product.getId())) {
                 newItem = false;
                 scItem.incrementQuantity();
             }
@@ -77,7 +76,7 @@ public class ShoppingCart {
 
             for (ShoppingCartItem scItem : items) {
 
-                if (scItem.getProduct().getId() == product.getId()) {
+                if (Objects.equals(scItem.getProduct().getId(), product.getId())) {
 
                     if (qty != 0) {
                         // set item quantity to new value
@@ -119,10 +118,11 @@ public class ShoppingCart {
 
         numberOfItems = 0;
 
-        for (ShoppingCartItem scItem : items) {
-
-            numberOfItems += scItem.getQuantity();
-        }
+        items.forEach(
+                (ShoppingCartItem scItem) -> {
+                    numberOfItems += scItem.getQuantity();
+                }
+        );
 
         return numberOfItems;
     }

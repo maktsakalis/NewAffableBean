@@ -41,8 +41,8 @@
         <jsp-property-group>
             <description>login header and footer settings</description>
             <url-pattern>/login.jsp</url-pattern>
-            <include-prelude>/WEB-INF/jspf/loginHeader.jspf</include-prelude>
-            <include-coda>/WEB-INF/jspf/loginFooter.jspf</include-coda>
+            <include-prelude>/WEB-INF/jspf/loginheader.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/loginfooter.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
 </web-app>
