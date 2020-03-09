@@ -80,7 +80,8 @@ public class ControllerServlet extends HttpServlet {
             if (categoryId != null) {
 
                 // get selected category
-                selectedCategory = categoryFacade.find(Short.parseShort(categoryId));
+//                selectedCategory = categoryFacade.find(Short.parseShort(categoryId));
+                selectedCategory = categoryFacade.getCategoryWithProducts(Short.parseShort(categoryId));
 
                 // place selected category in session scope
                 session.setAttribute("selectedCategory", selectedCategory);
