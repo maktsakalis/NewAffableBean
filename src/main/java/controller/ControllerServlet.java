@@ -67,7 +67,7 @@ public class ControllerServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String userPath = request.getServletPath();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         Category selectedCategory;
         Collection<Product> categoryProducts;
 

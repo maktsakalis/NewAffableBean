@@ -6,6 +6,7 @@ package session;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
 
@@ -15,13 +16,18 @@ import javax.persistence.criteria.*;
  */
 public abstract class AbstractFacade<T> {
 
+    @PersistenceContext(unitName = "AffableBean")
+    private EntityManager entityManager;
+
     private final Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
-    protected abstract EntityManager getEntityManager();
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
 
     public void create(T entity) {
         getEntityManager().persist(entity);
