@@ -4,6 +4,34 @@
     Author     : tgiunipero
 --%>
 
+<script src="webjars/jquery-validation/1.19.0/jquery.validate.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#checkoutForm").validate({
+            rules: {
+                name: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    number: true,
+                    minlength: 9
+                },
+                address: {
+                    required: true
+                },
+                creditcard: {
+                    required: true,
+                    creditcard: true
+                }
+            }
+        });
+    });
+</script>
 
 <div id="singleColumn">
 
@@ -11,8 +39,40 @@
 
     <p>In order to purchase the items in your shopping cart, please provide us with the following information:</p>
 
-    <form action="purchase" method="post">
+    <c:if test="${!empty orderFailureFlag}">
+        <p class="error">We were unable to process your order. Please try again!</p>
+    </c:if>
+
+    <form id="checkoutForm" action="<c:url value='purchase'/>" method="post">
         <table id="checkoutTable">
+            <c:if test="${!empty validationErrorFlag}">
+                <tr>
+                    <td colspan="2" style="text-align:left">
+                        <span class="error smallText">Please provide valid entries for the following field(s):
+
+                            <c:if test="${!empty nameError}">
+                                <br><span class="indent"><strong>name</strong> (e.g., Bilbo Baggins)</span>
+                            </c:if>
+                            <c:if test="${!empty emailError}">
+                                <br><span class="indent"><strong>email</strong> (e.g., b.baggins@hobbit.com)</span>
+                            </c:if>
+                            <c:if test="${!empty phoneError}">
+                                <br><span class="indent"><strong>phone</strong> (e.g., 222333444)</span>
+                            </c:if>
+                            <c:if test="${!empty addressError}">
+                                <br><span class="indent"><strong>address</strong> (e.g., Korunní 56)</span>
+                            </c:if>
+                            <c:if test="${!empty cityRegionError}">
+                                <br><span class="indent"><strong>city region</strong> (e.g., 2)</span>
+                            </c:if>
+                            <c:if test="${!empty ccNumberError}">
+                                <br><span class="indent"><strong>credit card</strong> (e.g., 1111222233334444)</span>
+                            </c:if>
+
+                        </span>
+                    </td>
+                </tr>
+            </c:if>
             <tr>
                 <td><label for="name">name:</label></td>
                 <td class="inputField">

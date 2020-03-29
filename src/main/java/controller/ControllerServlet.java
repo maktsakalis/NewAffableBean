@@ -9,6 +9,7 @@ import entity.Category;
 import entity.Product;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,7 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import session.CategoryFacade;
+import session.OrderManager;
 import session.ProductFacade;
+import validate.Validator;
 
 /**
  *
@@ -39,8 +42,12 @@ public class ControllerServlet extends HttpServlet {
 
     @EJB
     private CategoryFacade categoryFacade;
+
     @EJB
     private ProductFacade productFacade;
+
+    @EJB
+    private OrderManager orderManager;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -146,6 +153,7 @@ public class ControllerServlet extends HttpServlet {
         String userPath = request.getServletPath();
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+        Validator validator = new Validator();
 
         // if addToCart action is called
         if (userPath.equals("/addToCart")) {
@@ -176,16 +184,61 @@ public class ControllerServlet extends HttpServlet {
             String productId = request.getParameter("productId");
             String quantity = request.getParameter("quantity");
 
-            Product product = productFacade.find(Integer.parseInt(productId));
-            cart.update(product, quantity);
+            boolean invalidEntry = validator.validateQuantity(productId, quantity);
 
+            if (!invalidEntry) {
+                Product product = productFacade.find(Integer.parseInt(productId));
+                cart.update(product, quantity);
+            }
             userPath = "/cart";
 
             // if purchase action is called
         } else if (userPath.equals("/purchase")) {
-            // TODO: Implement purchase action
 
-            userPath = "/confirmation";
+            if (cart != null) {
+
+                String name = request.getParameter("name");
+                String email = request.getParameter("email");
+                String phone = request.getParameter("phone");
+                String address = request.getParameter("address");
+                String cityRegion = request.getParameter("cityRegion");
+                String ccNumber = request.getParameter("creditcard");
+
+                boolean validationErrorFlag = false;
+                validationErrorFlag = validator.validateForm(name, email, phone, address, cityRegion, ccNumber, request);
+
+                // if validation error found, return user to checkout
+                if (validationErrorFlag == true) {
+                    request.setAttribute("validationErrorFlag", validationErrorFlag);
+                    userPath = "/checkout";
+
+                    // otherwise, save order to database
+                } else {
+
+                    int orderId = orderManager.placeOrder(name, email, phone, address, cityRegion, ccNumber, cart);
+
+                    if (orderId != 0) {
+
+                        cart = null;
+                        session.invalidate();
+
+                        // get order details
+                        Map orderMap = orderManager.getOrderDetails(orderId);
+
+                        // place order details in request scope
+                        request.setAttribute("customer", orderMap.get("customer"));
+                        request.setAttribute("products", orderMap.get("products"));
+                        request.setAttribute("orderRecord", orderMap.get("orderRecord"));
+                        request.setAttribute("orderedProducts", orderMap.get("orderedProducts"));
+
+                        userPath = "/confirmation";
+                    } else {
+                        userPath = "/checkout";
+                        request.setAttribute("orderFailureFlag", true);
+                    }
+                }
+
+            }
         }
 
         // use RequestDispatcher to forward request internally
