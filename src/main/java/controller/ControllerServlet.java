@@ -90,13 +90,13 @@ public class ControllerServlet extends HttpServlet {
 //                selectedCategory = categoryFacade.find(Short.parseShort(categoryId));
                 selectedCategory = categoryFacade.getCategoryWithProducts(Short.parseShort(categoryId));
 
-                // place selected category in session scope
+// place selected category in session scope
                 session.setAttribute("selectedCategory", selectedCategory);
 
-                // get all products for selected category
+// get all products for selected category
                 categoryProducts = selectedCategory.getProductCollection();
 
-                // place category products in session scope
+// place category products in session scope
                 session.setAttribute("categoryProducts", categoryProducts);
             }
 

@@ -32,7 +32,7 @@
 
 <div id="categoryRightColumn">
 
-    <p id="categoryTitle">${selectedCategory.name}</p>
+    <p id="categoryTitle"><fmt:message key='${selectedCategory.name}'/></p>
 
     <table id="productTable">
 
