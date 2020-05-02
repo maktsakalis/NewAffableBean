@@ -33,10 +33,10 @@
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
         <jsp-property-group>
-            <description>login header and footer settings</description>
-            <url-pattern>/login.jsp</url-pattern>
-            <include-prelude>/WEB-INF/jspf/loginheader.jspf</include-prelude>
-            <include-coda>/WEB-INF/jspf/loginfooter.jspf</include-coda>
+            <description>JSP configuration for the admin console</description>
+            <url-pattern>/admin/index.jsp</url-pattern>
+            <include-prelude>/admin/jspf/header.jspf</include-prelude>
+            <include-coda>/admin/jspf/footer.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
 </web-app>

@@ -9,9 +9,9 @@
     <br>
     <hr id="footerDivider">
     <p id="footerText" class="reallySmallText">
-                    <a href="<c:url value='#'/>">Privacy Policy</a>
+        <a href="<c:url value='#'/>"><fmt:message key="privacy" /></a>
         &nbsp;&nbsp;::&nbsp;&nbsp;
-                    <a href="<c:url value='#'/>">Contact</a>
+        <a href="<c:url value='#'/>"><fmt:message key="contact" /></a>
         &nbsp;&nbsp;&copy;&nbsp;&nbsp;
         2010 the affable bean</p>
 </div>

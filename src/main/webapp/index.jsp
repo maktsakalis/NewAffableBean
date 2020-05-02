@@ -11,6 +11,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
+<%-- Set session-scoped variable to track the view user is coming from.
+     This is used by the language mechanism in the Controller so that
+     users view the same page when switching between English and Greek. --%>
+<c:set var='view' value='/index' scope='session' />
+
 <div id="indexLeftColumn">
     <div id="welcomeText">
         <p style="font-size: larger"><fmt:message key='greeting'/></p>
@@ -22,7 +27,7 @@
 <div id="indexRightColumn">
     <c:forEach var="category" items="${categories}">
         <div class="categoryBox">
-            <a href="category?${category.id}">
+            <a href="<c:url value='category?${category.id}'/>">
                 <span class="categoryLabel"></span>
                 <span class="categoryLabelText"><fmt:message key='${category.name}'/></span>
 

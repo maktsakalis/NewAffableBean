@@ -393,3 +393,51 @@ label.error {
 #totalCellRight { padding: 0 20px }
 
 #dateProcessedRow { padding: 2px 0 10px 20px }
+
+/* admin styles */
+#adminLogo {
+    float:left;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+
+#loginBox {
+    width: 300px;
+    margin: 0 auto;
+    border: solid 1px #f5eabe;
+    background-color: #f5eabe;
+    border-radius: 4px;
+}
+
+#adminMenu {
+    float: left;
+    width: 180px;
+    margin: 25px 5px 0 30px;
+    border: solid 1px #f5eabe;
+    background-color: #f5eabe;
+    border-radius: 4px;
+}
+
+#adminMenu p { margin-left: 15px }
+
+#adminTable {
+    width: 580px;
+    float: left;
+    background-color: #edf8f7;
+}
+
+.alignLeft { text-align: left }
+
+.selectedRow {
+    background-color: #c3e3e0;
+    cursor: pointer;
+}
+
+.noDecoration { text-decoration: none }
+
+.rigidWidth { width:200px }
+
+.embedded {
+    margin: 0;
+    border: none;
+}
