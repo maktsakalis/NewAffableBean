@@ -23,6 +23,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,6 +39,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price"),
     @NamedQuery(name = "Product.findByDescription", query = "SELECT p FROM Product p WHERE p.description = :description"),
     @NamedQuery(name = "Product.findByLastUpdate", query = "SELECT p FROM Product p WHERE p.lastUpdate = :lastUpdate")})
+@XmlRootElement
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -132,6 +135,7 @@ public class Product implements Serializable {
         this.category = category;
     }
 
+    @XmlTransient
     public Collection<OrderedProduct> getOrderedProducts() {
         return orderedProducts;
     }

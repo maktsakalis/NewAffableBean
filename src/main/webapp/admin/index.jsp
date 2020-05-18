@@ -36,9 +36,9 @@
         <c:forEach var="customer" items="${customerList}" varStatus="iter">
 
             <tr class="${((iter.index % 2) == 1) ? 'lightBlue' : 'white'} tableRow"
-                onclick="document.location.href='customerRecord?${customer.id}'">
+                onclick="document.location.href = 'customerRecord?${customer.id}'">
 
-              <%-- Below anchor tags are provided in case JavaScript is disabled --%>
+                <%-- Below anchor tags are provided in case JavaScript is disabled --%>
                 <td><a href="customerRecord?${customer.id}" class="noDecoration">${customer.id}</a></td>
                 <td><a href="customerRecord?${customer.id}" class="noDecoration">${customer.name}</a></td>
                 <td><a href="customerRecord?${customer.id}" class="noDecoration">${customer.email}</a></td>
@@ -70,9 +70,9 @@
         <c:forEach var="order" items="${orderList}" varStatus="iter">
 
             <tr class="${((iter.index % 2) == 1) ? 'lightBlue' : 'white'} tableRow"
-                onclick="document.location.href='orderRecord?${order.id}'">
+                onclick="document.location.href = 'orderRecord?${order.id}'">
 
-              <%-- Below anchor tags are provided in case JavaScript is disabled --%>
+                <%-- Below anchor tags are provided in case JavaScript is disabled --%>
                 <td><a href="orderRecord?${order.id}" class="noDecoration">${order.id}</a></td>
                 <td><a href="orderRecord?${order.id}" class="noDecoration">${order.confirmationNumber}</a></td>
                 <td><a href="orderRecord?${order.id}" class="noDecoration">
@@ -133,11 +133,11 @@
         <tr><td colspan="2" style="padding: 0 20px"><hr></td></tr>
 
         <tr class="tableRow"
-            onclick="document.location.href='orderRecord?${order.id}'">
+            onclick="document.location.href = 'orderRecord?${order.id}'">
             <td colspan="2">
                 <%-- Anchor tag is provided in case JavaScript is disabled --%>
                 <a href="orderRecord?${order.id}" class="noDecoration">
-                <strong>view order summary &#x279f;</strong></a></td>
+                    <strong>view order summary &#x279f;</strong></a></td>
         </tr>
     </table>
 
@@ -171,7 +171,7 @@
         <tr>
             <td colspan="2">
                 <table class="embedded detailsTable">
-                   <tr class="tableHeading">
+                    <tr class="tableHeading">
                         <td class="rigidWidth">product</td>
                         <td class="rigidWidth">quantity</td>
                         <td>price</td>
@@ -220,7 +220,7 @@
         <tr><td colspan="3" style="padding: 0 20px"><hr></td></tr>
 
         <tr class="tableRow"
-            onclick="document.location.href='customerRecord?${customer.id}'">
+            onclick="document.location.href = 'customerRecord?${customer.id}'">
             <td colspan="2">
                 <%-- Anchor tag is provided in case JavaScript is disabled --%>
                 <a href="customerRecord?${customer.id}" class="noDecoration">

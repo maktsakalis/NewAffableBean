@@ -17,6 +17,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,6 +35,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Customer.findByAddress", query = "SELECT c FROM Customer c WHERE c.address = :address"),
     @NamedQuery(name = "Customer.findByCityRegion", query = "SELECT c FROM Customer c WHERE c.cityRegion = :cityRegion"),
     @NamedQuery(name = "Customer.findByCcNumber", query = "SELECT c FROM Customer c WHERE c.ccNumber = :ccNumber")})
+@XmlRootElement
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -143,6 +146,7 @@ public class Customer implements Serializable {
         this.ccNumber = ccNumber;
     }
 
+    @XmlTransient
     public Collection<CustomerOrder> getCustomerOrders() {
         return customerOrders;
     }
